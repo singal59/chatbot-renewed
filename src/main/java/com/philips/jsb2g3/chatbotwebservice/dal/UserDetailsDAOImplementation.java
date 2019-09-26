@@ -40,20 +40,20 @@ public class UserDetailsDAOImplementation implements UserDetailsDAO {
 
   @Override
   public List<UserDetails> findAll() {
-    return em.createQuery("select ud from userdetails ud")
+    return em.createQuery("select ud from UserDetails ud")
         .getResultList();
   }
 
   @Override
   public UserDetails findByName(String name) {
-    return (UserDetails) em.createQuery("select m from userdetails m where m.name=:name ")
+    return (UserDetails) em.createQuery("select m from UserDetails m where m.name=:name ")
         .setParameter("name", name)
         .getSingleResult();
   }
 
   @Override
   public void deleteById(int id) {
-    em.createQuery("delete from userdetails m where m.id=:id").setParameter("id", id)
+    em.createQuery("delete from UserDetails m where m.id=:id").setParameter("id", id)
     .executeUpdate();
   }
 }
